@@ -1,0 +1,85 @@
+
+0000	main:
+0000		sliu a 0
+0001		slil a 3
+0002		sliu a #a	[03]
+0003		slil a #a	[0f]
+0004		store	a [a]
+0005		sliu a 0
+0006		slil a 4
+0007		sliu a #b	[03]
+0008		slil a #b	[0f]
+0009		store	a [a]
+000a		sliu a 0
+000b		slil a 0
+000c		sliu a #s	[03]
+000d		slil a #s	[0f]
+000e		store	a [a]
+000f		sliu a 0
+0010		slil a 0
+0011		sliu a #i	[03]
+0012		slil a #i	[0f]
+0013		store	a [a]
+0014	?2:
+0014		sliu a #i	[03]
+0015		slil a #i	[0f]
+0016		load	a [a]
+0017		push	a
+0018		sliu a #b	[03]
+0019		slil a #b	[0f]
+001a		load	a [a]
+001b		pop	d
+001c		pop	d
+001d		sliu a 0
+001e		slil a 0
+001f		skipge	d
+0020		inc
+0021		sliu d #?4	[03]
+0022		slil d #?4	[01]
+0023		skipnz	a
+0024		jalr	d d
+0025		sliu c #?5	[03]
+0026		slil c #?5	[0e]
+0027	?3:
+0027		sliu a #i	[03]
+0028		slil a #i	[0f]
+0029		load	a [a]
+002a		inc	a
+002b		sliu a #i	[03]
+002c		slil a #i	[0f]
+002d		store	a [a]
+002e		dec	a
+002f		sliu c #?2	[01]
+0030		slil c #?2	[04]
+0031	?4:
+0031		sliu a #s	[03]
+0032		slil a #s	[0f]
+0033		load	a [a]
+0034		push	a
+0035		sliu a #a	[03]
+0036		slil a #a	[0f]
+0037		load	a [a]
+0038		add	a b
+0039		sliu a #s	[03]
+003a		slil a #s	[0f]
+003b		store	a [a]
+003c		sliu c #?3	[02]
+003d		slil c #?3	[07]
+003e	?5:
+003e		pop	d
+003f	?1:
+003f	a:	db	2
+003f	b:	db	2
+003f	s:	db	2
+003f	i:	db	2	
+	;0 error(s) in compilation
+	;	literal pool:0
+	;	global pool:98
+	;	Macro pool:51
+
+003f		pop	d
+0040		pop	c
+0041		jmpfar	d d	
+	; _ ends
+	
+

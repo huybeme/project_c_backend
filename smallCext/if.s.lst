@@ -1,0 +1,48 @@
+
+0000	main:
+0000		sliu a 0
+0001		slil a 4
+0002		sliu a #apple	[01]
+0003		slil a #apple	[0f]
+0004		store	a [a]
+0005		sliu a 0
+0006		slil a 3
+0007		sliu a #banana	[01]
+0008		slil a #banana	[0f]
+0009		store	a [a]
+000a		sliu a #apple	[01]
+000b		slil a #apple	[0f]
+000c		load	a [a]
+000d		push	a
+000e		sliu a 0
+000f		slil a 6
+0010		pop	d
+0011		pop	d
+0012		sliu a 0
+0013		slil a 0
+0014		skipge	d
+0015		inc
+0016		sliu d #?2	[01]
+0017		slil d #?2	[0f]
+0018		skipnz	a
+0019		jalr	d d
+001a		sliu a 0
+001b		slil a 6
+001c		sliu a #banana	[01]
+001d		slil a #banana	[0f]
+001e		store	a [a]
+001f	?2:
+001f	?1:
+001f	apple:	db	2
+001f	banana:	db	2	
+	;0 error(s) in compilation
+	;	literal pool:0
+	;	global pool:70
+	;	Macro pool:51
+
+001f		pop	d
+0020		pop	c
+0021		jmpfar	d d	
+	; _ ends
+	
+

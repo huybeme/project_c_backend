@@ -1,0 +1,31 @@
+
+0000	main:
+0000		sliu a 0
+0001		slil a 4
+0002		sliu a #apple	[01]
+0003		slil a #apple	[00]
+0004		store	a [a]
+0005		sliu a #apple	[01]
+0006		slil a #apple	[00]
+0007		load	a [a]
+0008		push	a
+0009		sliu a 0
+000a		slil a 3
+000b		add	a b
+000c		sliu a #apple	[01]
+000d		slil a #apple	[00]
+000e		store	a [a]
+000f	?1:
+000f		pop	d
+0010	apple:	db	2	
+	;0 error(s) in compilation
+	;	literal pool:0
+	;	global pool:56
+	;	Macro pool:51
+
+0010		pop	d
+0011		pop	c
+0012		jmpfar	d d	
+	; _ ends
+	
+
